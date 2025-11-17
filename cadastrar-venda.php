@@ -35,7 +35,7 @@
 	</div>
 	
 	<div class="mb-3">
-		<label>Modelo do Veículo
+		<label>Modelo do Tênis
 			<select name="modelo_id" class="form-control" required>
 				<option>-= Escolha =-</option>
 				<?php

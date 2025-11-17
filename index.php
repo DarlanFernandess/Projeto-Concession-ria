@@ -3,13 +3,13 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Concessionária</title>
+	<title>Loja de tênis</title>
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 </head>
 <body>
 	<nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">VenonCar</a>
+    <a class="navbar-brand" href="#">Loja de Tênis</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -62,13 +62,6 @@
             <li><a class="dropdown-item" href="?page=cadastrar-venda">Cadastrar</a></li>
             <li><a class="dropdown-item" href="?page=listar-venda">Listar</a></li>
         </ul>
-        </li>
-
-        </ul>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
     </div>
   </div>
 </nav>
@@ -153,7 +146,7 @@
 			     		break;
 
 			     	default:
-			     		print "<h1>Seja Bem Vindo ao Sistema da VenonCar</h1>";
+			     		print "<h1>Seja Bem Vindo ao Sistema da Loja de Tênis Virtual</h1>";
 			     		
 			     }
 			?>     

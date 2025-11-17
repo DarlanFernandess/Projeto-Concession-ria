@@ -31,11 +31,6 @@
 		</label>
 	</div>
 	<div class="mb-3">
-		<label>Ano
-			<input type="number" name="ano_modelo" class="form-control">
-		</label>
-	</div>
-    <div class="mb-3">
 		<label>Tipo
 			<input type="text" name="tipo_modelo" class="form-control">
 		</label>

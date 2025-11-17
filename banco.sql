@@ -8,19 +8,19 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
 -- -----------------------------------------------------
--- Schema VenonCar
+-- Schema Loja_de_tênis
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
--- Schema VenonCar
+-- Schema Loja_de_tênis
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `VenonCar` DEFAULT CHARACTER SET utf8 ;
-USE `VenonCar` ;
+CREATE SCHEMA IF NOT EXISTS `Loja_de_tênis` DEFAULT CHARACTER SET utf8 ;
+USE `Loja_de_tênis` ;
 
 -- -----------------------------------------------------
--- Table `VenonCar`.`cliente`
+-- Table `Loja_de_tênis`.`cliente`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `VenonCar`.`cliente` (
+CREATE TABLE IF NOT EXISTS `Loja_de_tênis`.`cliente` (
   `id_cliente` INT NOT NULL AUTO_INCREMENT,
   `nome_cliente` VARCHAR(100) NOT NULL,
   `cpf_cliente` CHAR(11) NULL,
@@ -33,9 +33,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `VenonCar`.`funcionario`
+-- Table `Loja_de_tênis`.`funcionario`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `VenonCar`.`funcionario` (
+CREATE TABLE IF NOT EXISTS `Loja_de_tênis`.`funcionario` (
   `id_funcionario` INT NOT NULL AUTO_INCREMENT,
   `nome_funcionario` VARCHAR(100) NOT NULL,
   `telefone_funcionario` VARCHAR(20) NULL,
@@ -46,9 +46,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `VenonCar`.`marca`
+-- Table `Loja_de_tênis`.`marca`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `VenonCar`.`marca` (
+CREATE TABLE IF NOT EXISTS `Loja_de_tênis`.`marca` (
   `id_marca` INT NOT NULL AUTO_INCREMENT,
   `nome_marca` VARCHAR(45) NULL,
   PRIMARY KEY (`id_marca`))
@@ -56,29 +56,28 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `VenonCar`.`modelo`
+-- Table `Loja_de_tênis`.`modelo`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `VenonCar`.`modelo` (
+CREATE TABLE IF NOT EXISTS `Loja_de_tênis`.`modelo` (
   `id_modelo` INT NOT NULL AUTO_INCREMENT,
   `nome_modelo` VARCHAR(45) NOT NULL,
   `cor_modelo` VARCHAR(45) NULL,
-  `ano_modelo` YEAR NULL,
   `tipo_modelo` VARCHAR(45) NULL,
   `marca_id_marca` INT NOT NULL,
   PRIMARY KEY (`id_modelo`, `marca_id_marca`),
   INDEX `fk_modelo_marca1_idx` (`marca_id_marca` ASC) ,
   CONSTRAINT `fk_modelo_marca1`
     FOREIGN KEY (`marca_id_marca`)
-    REFERENCES `VenonCar`.`marca` (`id_marca`)
+    REFERENCES `Loja_de_tênis`.`marca` (`id_marca`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `VenonCar`.`venda`
+-- Table `Loja_de_tênis`.`venda`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `VenonCar`.`venda` (
+CREATE TABLE IF NOT EXISTS `Loja_de_tênis`.`venda` (
   `id_venda` INT NOT NULL AUTO_INCREMENT,
   `data_venda` DATE NULL,
   `valor_venda` DECIMAL(10) NULL,
@@ -91,17 +90,17 @@ CREATE TABLE IF NOT EXISTS `VenonCar`.`venda` (
   INDEX `fk_venda_cliente1_idx` (`cliente_id_cliente` ASC) ,
   CONSTRAINT `fk_venda_funcionario`
     FOREIGN KEY (`funcionario_id_funcionario`)
-    REFERENCES `VenonCar`.`funcionario` (`id_funcionario`)
+    REFERENCES `Loja_de_tênis`.`funcionario` (`id_funcionario`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_venda_modelo1`
     FOREIGN KEY (`modelo_id_modelo`)
-    REFERENCES `VenonCar`.`modelo` (`id_modelo`)
+    REFERENCES `Loja_de_tênis`.`modelo` (`id_modelo`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_venda_cliente1`
     FOREIGN KEY (`cliente_id_cliente`)
-    REFERENCES `VenonCar`.`cliente` (`id_cliente`)
+    REFERENCES `Loja_de_tênis`.`cliente` (`id_cliente`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
